@@ -1,6 +1,6 @@
 import lib from '../assets/lib.png';
 import RegisterForm from './Register';
-import './homepage.css'
+import './homePage.css'
 import LoginForm from './loginForm';
 import { useState } from 'react';
 
