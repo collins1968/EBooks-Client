@@ -1,0 +1,12 @@
+.overview {
+    display: grid;
+    grid-template-columns:  17% 80%;
+    gap: 2%;
+    /* display: flex;
+    flex-direction: row; */
+    padding: 40px;
+    /* gap: 20px; */
+    max-height: 400vh;
+    /* overflow: auto; */
+    justify-content: space-between;
+}
