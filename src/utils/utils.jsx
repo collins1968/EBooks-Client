@@ -1,3 +1,3 @@
-export const apiDomain = 'https://ebooksbackend.azurewebsites.net';
+export const apiDomain = 'https://ebookappapi.azurewebsites.net';
   
   
