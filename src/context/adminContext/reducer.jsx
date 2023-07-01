@@ -1,6 +1,5 @@
 const Reducer = (state, action) => {
     switch (action.type) {
-
         case "ADD-USERS":
             return {
                 ui: action.payload

@@ -1,7 +1,8 @@
-import { useContext, createContext } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import Reducer from "./Reducer";
 
 const INITIAL_STATE = {
-    ui: JSON.parse(localStorage.getItem("ui")) || 'profile'
+    ui: JSON.parse(localStorage.getItem("ui")) || 'viewauthors'
 }
 //declare createContext
 export const AdminContext = createContext(INITIAL_STATE);
@@ -11,8 +12,9 @@ export const UIContextProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("ui", JSON.stringify(state.ui))
     }, [state.ui])
-    return <Context.Provider value={{ ui: state.ui, dispatch }}>
+    return <AdminContext.Provider value={{ ui: state.ui, dispatch }}>
         {children}
-    </Context.Provider>
+    </AdminContext.Provider>
 }
+
 

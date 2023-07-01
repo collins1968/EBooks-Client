@@ -8,10 +8,7 @@
     background-color: #18273f;
     width: 250px;
     height: 100vh;
-    /* position: fixed;
-    overflow: auto;
-    padding: 20px;
-     */
+    
 } 
 
 .sidebarAdmin li {
@@ -21,5 +18,8 @@
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 1px solid #18273f;
+    border-bottom: 1px solid #8092af;
+}
+.sidebarAdmin li:hover {
+    background-color: #8092af;
 }
