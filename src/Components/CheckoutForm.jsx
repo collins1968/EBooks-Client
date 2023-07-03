@@ -6,6 +6,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import { apiDomain } from "../utils/utils";
 
 export default function CheckoutForm() {
   const navigate = useNavigate();
@@ -61,8 +62,7 @@ export default function CheckoutForm() {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: "http://localhost:5173/success",
+        return_url: `${apiDomain}/success`,
         // toast.success("Payment Successful");
       },
     });
