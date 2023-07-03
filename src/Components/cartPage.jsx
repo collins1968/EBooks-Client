@@ -4,14 +4,13 @@ import { Context } from '.././context/userContext/context'
 import { CartContext } from '../context/CartContext/Context';
 import {toast} from 'react-toastify';
 import {apiDomain} from '../utils/utils';
+import { useNavigate } from 'react-router-dom';
 
 
 const CartPage2 = () => {
+  const navigate = useNavigate();
   const {cartId} = useContext(CartContext);
   const {user} = useContext(Context);
-  // const userString = localStorage.getItem("cartId");
-  // const cartId = JSON.parse(userString);
-
     const [cartItems, setCartItems] = useState([]);
 
     // Fetch the cart items from the server
@@ -37,6 +36,7 @@ const CartPage2 = () => {
     try {
       const response = await axios.delete(`${apiDomain}/cart/${cartId}/items/${itemId}` , 
       { headers: { Authorization: `${user.token}` } });
+      navigate('/home')
       toast.success(response.data.message);
       fetchCartItems();
     } catch (error) {
@@ -51,6 +51,7 @@ const handleQuantityChange = async (itemId, quantity) => {
         { headers: { Authorization: `${user.token}` } },
         { quantity });
         // alert(response.data.message)
+        
         toast.success('added the quantity')
         fetchCartItems();
       } catch (error) {
@@ -79,7 +80,7 @@ const handleQuantityChange = async (itemId, quantity) => {
                   <input
                     type="number"
                     min="1"
-                    defaultValue={item.quantity}
+                    defaultValue="1"
                     onChange={(e) =>
                       handleQuantityChange(item.cart_item_id, e.target.value)
                     }

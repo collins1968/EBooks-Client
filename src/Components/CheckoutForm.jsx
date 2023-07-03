@@ -5,8 +5,10 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutForm() {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -56,11 +58,12 @@ export default function CheckoutForm() {
 
     setIsLoading(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:5173",
+        return_url: "http://localhost:5173/success",
+        // toast.success("Payment Successful");
       },
     });
 
@@ -69,6 +72,8 @@ export default function CheckoutForm() {
     // your `return_url`. For some payment methods like iDEAL, your customer will
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
+
+
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
@@ -77,6 +82,7 @@ export default function CheckoutForm() {
 
     setIsLoading(false);
   };
+
 
   const paymentElementOptions = {
     layout: "tabs"

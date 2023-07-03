@@ -9,9 +9,7 @@ import AdminPage from './Components/Admin/pages/AdminPage';
 import BooksOverview from './Components/Books/BooksOverview';
 import RegisterForm from './Components/Register';
 import Checkout from './Components/Checkout';
-// import CartPage from './Components/cart';
-import CartPage2 from './Components/cartPage';
-import PaymentSuccess from './Components/PaymentSucess'
+import PaymentSucess from './Components/PaymentSucess'
 
 
 import { Context } from './context/userContext/context';
@@ -28,7 +26,7 @@ function App() {
       <Route path="/home" element={user ? <BooksOverview /> : <Homepage />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/success" element={<PaymentSuccess />} />
+      <Route path="/success" element={<PaymentSucess />} />
 
     </Routes>
     <Footer /> 
