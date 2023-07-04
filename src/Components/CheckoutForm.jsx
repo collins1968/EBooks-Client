@@ -62,7 +62,7 @@ export default function CheckoutForm() {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${apiDomain}/success`,
+        return_url: "https://gentle-pond-0644ea00f.3.azurestaticapps.net/success",
         // toast.success("Payment Successful");
       },
     });
