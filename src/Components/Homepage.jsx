@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
  const Homepage = () => {
-    const [isLoginForm, setIsLoginForm] = useState(true);
+    const [isLoginForm, setIsLoginForm] = useState(false);
 
     const toggleForm = () => {
         setIsLoginForm(!isLoginForm);
