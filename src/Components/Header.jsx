@@ -5,9 +5,17 @@ import lib from '../assets/lib.png';
 import profile from '../assets/profile.png';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
+import { Context } from '../context/userContext/context';
 
 
 const Header = () => { 
+const {user, dispatch} = useContext(Context);
+const navigate = useNavigate();
+const handleLogout = () => {
+  dispatch({ type: "LOGOUT" });
+  navigate("/");
+};
   return (
     <div className="header">
       <div className='LogoName'>
@@ -35,7 +43,7 @@ const Header = () => {
             <p className='cart-counter'> 1 </p>
           </div>
         </Link>
-          
+        <button onClick={handleLogout}>LOGOUT</button>  
         <img src={profile} alt="profileImage" className='profileImage'  />
        
         </div>   
