@@ -71,6 +71,9 @@ const LoginForm = ({ onFormChange }) => {
   return (
     <div className="homepage">
       <div className="directory-menu">
+      <p>admin credentials</p> 
+      <p>username: Admin</p>
+      <p> password: Admin123</p>
         <form class="form" onSubmit={handleSubmit(onSubmit)}>
           <p id="heading">Login</p>
           <div class="field">
